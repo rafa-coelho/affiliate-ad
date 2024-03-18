@@ -1,18 +1,16 @@
 {
-  "name": "@rafa-coelho/affiliiate-ad",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/rafa-coelho"
-  },
+  "name": "@rafa-coelho/affiliate-ad",
   "version": "0.0.1",
   "description": "",
   "module": "dist/esm/index.js",
   "main": "dist/cjs/index.js",
   "types": "dist/index.d.ts",
+  "private": false,
   "scripts": {
     "rollup": "rollup -c --bundleConfigAsCjs"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Rafael Coelho <rafaelcoelho8@yahoo.com.br>",
+  "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",

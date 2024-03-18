@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { API_URL } from './consts';
 import './style.css';
 
 interface Product {
@@ -30,7 +31,7 @@ const AffiliateAd = (props: AffiliateAdProps) => {
 
     const getAdInfo = (code: string) => {
         fetch(
-            `http://localhost:3000/products/ad-products/${code}`,
+            `${API_URL}/products/ad-products/${code}`,
             {
                 method: "GET",
                 headers: {

@@ -17,6 +17,7 @@ jobs:
         with:
           node-version: '21'
           always-auth: true
+          registry-url: 'https://registry.npmjs.org/'
     
       - name: update API_URL
         run: sed -i 's|{{API_URL}}|${{ secrets.API_URL }}|g' src/consts.ts

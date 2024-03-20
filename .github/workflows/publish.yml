@@ -20,7 +20,10 @@ jobs:
           registry-url: 'https://registry.npmjs.org/'
     
       - name: update API_URL
-        run: sed -i 's|{{API_URL}}|${{ secrets.API_URL }}|g' src/consts.ts
+        run: |
+          sed -i 's|{{API_URL}}|${{ secrets.API_URL }}|g' src/consts.ts
+          echo "API_URL updated"
+          echo ${{ secrets.API_URL }}
       
       - name: Install Dependencies
         run: npm install

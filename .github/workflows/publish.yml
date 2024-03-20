@@ -18,6 +18,21 @@ jobs:
           node-version: '21'
           always-auth: true
           registry-url: 'https://registry.npmjs.org/'
+      
+      - name: Determine New Version
+        id: versioning
+        run: |
+          # Assume default tag if none exists
+          GIT_TAG="0.0"
+          LATEST_COMMIT_COUNT=$(git rev-list --count HEAD)
+          NEW_VERSION="$GIT_TAG.$LATEST_COMMIT_COUNT"
+          echo "New version is $NEW_VERSION"
+          
+          # Output the new version for later steps
+          echo "::set-output name=NEW_VERSION::$NEW_VERSION"
+          
+          # Update the package.json with the new version without creating a Git tag
+          npm version $NEW_VERSION --no-git-tag-version
     
       - name: update API_URL
         run: sed -i 's|{{API_URL}}|${{ secrets.API_URL }}|g' src/consts.ts

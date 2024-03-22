@@ -57,7 +57,7 @@ const AffiliateAd = (props: AffiliateAdProps) => {
     return (
         <div className={`productDisplay`}>
             {adData.products.map((product) => (
-                <a href={`http://localhost:3000/products/product-redirect/${product.id}/${props.code}`} target="_blank" rel="noopener noreferrer" style={{ color: fontColor }}>
+                <a href={`${API_URL}/products/product-redirect/${product.id}/${props.code}`} target="_blank" rel="noopener noreferrer" style={{ color: fontColor }}>
                     <div key={product.code} className={`productItem`}>
                         <img src={product.image} alt={product.title} className={`productImage`} />
                         <span className={`productPrice`} style={{ color: fontColor }}>{`R$ ${product.price}`}</span>
